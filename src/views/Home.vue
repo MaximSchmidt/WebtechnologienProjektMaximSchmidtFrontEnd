@@ -1,13 +1,14 @@
 <template>
-<h1> Welcome to ToDoList </h1>
 </template>
 
 <script>
+
 export default {
-  name: 'ToDoList'
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Home'
 }
+
 </script>
 
 <style scoped>
-
 </style>

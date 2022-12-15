@@ -1,28 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import ToDoList from '../views/ToDoList.vue'
+import Home from '../views/Home.vue'
+import About from '../views/About.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Home',
+    component: Home
   },
   {
     path: '/about',
-    name: 'about',
-    component: AboutView
-  },
-  {
-    path: '/todolist',
-    name: 'todolist',
-    component: ToDoList
+    name: 'About',
+    component: About
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory('http://localhost:8080/api/v1/todolist'),
   linkActiveClass: 'active',
   routes
 })
