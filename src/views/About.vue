@@ -1,20 +1,14 @@
 <template>
-  <div class="about container mt-3">
-    <h1>Projekt-To-Do-Liste</h1>
-
-    <h6>Maxim Schmidt - 5798425</h6>
-
-    <div class="container-xxlmt-3">
-
-      <h6>webbasierte Anwendung mit folgenden Funktionen:</h6>
-
-      <li>To-Do-Notiz erstellen</li>
-      <li>To-Do-Notiz löschen</li>
-      <li>To-Do-Notiz bearbeiten</li>
-      <li>To-Do-Notiz priorisieren</li>
-      <li>To-Do-Notizen sortieren </li>
+  <div class="container mt-100">
+    <h1><p class="text-white">Projekt: To-Do-Liste</p></h1>
+    <h5><p class="text-white">Maxim Schmidt - 5798425</p></h5>
+      <h5><p class="text-white">webbasierte Anwendung mit folgenden Funktionen:</p></h5>
+      <h7><p class="text-white">To-Do-Liste erstellen</p></h7>
+      <h7><p class="text-white">To-Do-Liste löschen</p></h7>
+      <h7><p class="text-white">To-Do-Liste bearbeiten</p></h7>
+      <h7><p class="text-white">To-Do-Liste priorisieren</p></h7>
+      <h7><p class="text-white">To-Do-Liste sortieren nach Keywords</p></h7>
     </div>
-  </div>
 </template>
 <script>
 

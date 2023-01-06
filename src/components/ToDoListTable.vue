@@ -1,51 +1,68 @@
 <template>
-  <table class="table table-dark">
-    <thead class="thead-dark">
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">titel</th>
-      <th scope="col">description</th>
-      <th scope="col">category</th>
-      <th scope="col">date</th>
-      <th scope="col">priority</th>
-      <th scope="col">complete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="todo in todos" :key="todo.id">
-      <th scope="row">{{todo.id}}</th>
-      <td>{{todo.titel}}</td>
-      <td>{{todo.description}}</td>
-      <td>{{todo.category}}</td>
-      <td>{{todo.date}}</td>
-      <td>{{todo.priority ? 'erledigt' : 'nicht erledigt'}}</td>
-      <td>{{todo.complete ? 'erledigt' : 'nicht erledigt'}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div>
+    <table class="table table-striped table-dark">
+      <thead>
+      <tr>
+        <th scope="col">Titel</th>
+        <th scope="col">Beschreibung</th>
+        <th scope="col">Keywords</th>
+        <th scope="col">Frist</th>
+        <th scope="col">Aktion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="toDo in toDo2" :key="toDo.id">
+        <td>{{ toDo.titel }}</td>
+        <td>{{ toDo.description }}</td>
+        <td>{{ toDo.category }}</td>
+        <td>{{ toDo.date }}</td>
+        <td v-if="toDo.complete">
+          <button type="button" class=" btn mx-1" @click="editDone(toDo)">🔄</button>
+          <button type="button" class=" btn mx-1" @click="deleteToDo(toDo)">❌</button>
+        </td>
+        <td v-else class="">
+          <button type="button" class="btn mx-1 text-warning" :class="toDo.priority ? 'bi-star-fill' : 'bi-star'" @click="editFavorite(toDo)"> </button>
+          <button type="button" class=" btn mx-1" @click="editDone(toDo)">✔</button>
+          <button type="button" class=" btn mx-1" @click="openTable(toDo)">✎</button>
+          <button type="button" class=" btn mx-1" @click="deleteToDo(toDo)">❌</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'ToDoListTable',
+  props: {
+    toDos: {
+      type: Array,
+      required: true
+    },
+    deleteToDo: Function,
+    editTodo: Function,
+    openTable: Function
+  },
   data () {
     return {
-      todos: []
+      toDo2: this.toDos
     }
   },
-  mounted () {
-    const endpoint = 'http://localhost:8080/api/v1/todolist'
-    console.log(endpoint)
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
+  watch: {
+    toDos: function (newV, oldV) {
+      this.toDo2 = this.toDos
     }
-    fetch(endpoint, requestOptions)
-      .then(response => response.json())
-      .then(result => result.forEach(todo => {
-        this.todos.push(todo)
-      }))
-      .then(error => console.log('error', error))
+  },
+  methods: {
+    editFavorite (toDo) {
+      toDo.priority = !toDo.priority
+      this.editTodo(toDo)
+    },
+    editDone (toDo) {
+      toDo.complete = !toDo.complete
+      this.editTodo(toDo)
+    }
   }
 }
 </script>

@@ -14,6 +14,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+.background  {
+  background: rgb(11, 12, 24);
+  height: 1000vh;
+}
 </style>
