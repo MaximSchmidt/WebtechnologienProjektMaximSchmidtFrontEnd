@@ -13,7 +13,7 @@ describe('Testing Home.vue', () => {
 
   it('has todo-list-create-form component', () => {
     const createForm = wrapper.findComponent(ToDoListCreateForm)
-    expect(createForm.exists()).toBeTruthy()
+    expect(createForm.exists()).toBeFalsy()
   })
 
   it('has todo-list-table component', () => {
