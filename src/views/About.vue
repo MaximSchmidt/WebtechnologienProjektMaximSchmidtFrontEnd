@@ -7,6 +7,7 @@
       <h7><p class="text-white">To-Do-Liste löschen</p></h7>
       <h7><p class="text-white">To-Do-Liste bearbeiten</p></h7>
       <h7><p class="text-white">To-Do-Liste priorisieren</p></h7>
+      <h7><p class="text-white">To-Do-Liste zurückhollen nach Löschung</p></h7>
       <h7><p class="text-white">To-Do-Liste sortieren nach Keywords</p></h7>
     </div>
 </template>
